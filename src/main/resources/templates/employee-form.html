@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add/Edit Employee</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2 th:text="${employee.id != null ? 'Edit Employee' : 'Add Employee'}"></h2>
+    <form th:action="@{/employees/add}" th:object="${employee}" method="POST">
+        <input type="text" name="name" placeholder="Name" th:value="${employee.name}" required>
+        <input type="email" name="email" placeholder="Email" th:value="${employee.email}" required>
+        <input type="text" name="department" placeholder="Department" th:value="${employee.department}">
+        <input type="number" name="salary" placeholder="Salary" th:value="${employee.salary}" required>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
